@@ -1,0 +1,238 @@
+@import "tailwindcss";
+
+@theme {
+  /* Live Wire brand scale */
+  --color-livewire-50: #fff7f1;
+  --color-livewire-100: #ffeadc;
+  --color-livewire-200: #ffd2b8;
+  --color-livewire-300: #ffb98f;
+  --color-livewire-400: #ffa873;
+
+  /* Main Live Wire web approximation */
+  --color-livewire-500: #ff9f67;
+
+  --color-livewire-600: #ee7d43;
+  --color-livewire-700: #cf5f2c;
+  --color-livewire-800: #a84826;
+  --color-livewire-900: #873d24;
+
+  /* DriveX automotive neutrals */
+  --color-drive-950: #05070a;
+  --color-drive-900: #090d12;
+  --color-drive-850: #0d131a;
+  --color-drive-800: #111923;
+  --color-drive-700: #202b36;
+}
+
+:root {
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", sans-serif;
+
+  color: #f8fafc;
+  background: #05070a;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  min-width: 320px;
+  min-height: 100%;
+  background: #05070a;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+::selection {
+  background: rgba(255, 159, 103, 0.35);
+}
+
+
+/* =========================
+   MAIN BACKGROUND
+   ========================= */
+
+.auth-bg {
+  background:
+    radial-gradient(
+      circle at 18% 18%,
+      rgba(255, 159, 103, 0.14),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 82% 82%,
+      rgba(238, 125, 67, 0.08),
+      transparent 28%
+    ),
+    linear-gradient(
+      135deg,
+      #030508 0%,
+      #080d13 48%,
+      #05070a 100%
+    );
+}
+
+
+/* =========================
+   GLASS CARD
+   ========================= */
+
+.glass-panel {
+  background: rgba(9, 13, 18, 0.82);
+
+  border: 1px solid rgba(255, 159, 103, 0.12);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.48),
+    inset 0 1px 0 rgba(255, 255, 255, 0.035);
+
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+
+
+/* =========================
+   INPUT
+   ========================= */
+
+.field {
+  width: 100%;
+
+  border-radius: 1rem;
+
+  border: 1px solid rgba(148, 163, 184, 0.16);
+
+  background: rgba(15, 23, 32, 0.78);
+
+  padding: 0.95rem 1rem 0.95rem 2.8rem;
+
+  color: #f8fafc;
+
+  outline: none;
+
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    background 180ms ease;
+}
+
+.field::placeholder {
+  color: #64748b;
+}
+
+.field:hover {
+  border-color: rgba(255, 159, 103, 0.28);
+}
+
+.field:focus {
+  border-color: #ff9f67;
+
+  background: rgba(17, 25, 35, 0.96);
+
+  box-shadow:
+    0 0 0 4px rgba(255, 159, 103, 0.10),
+    0 8px 30px rgba(255, 159, 103, 0.06);
+}
+
+
+/* =========================
+   BACKGROUND GRID
+   ========================= */
+
+.noise {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0.22;
+
+  pointer-events: none;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.018) 1px,
+      transparent 1px
+    );
+
+  background-size: 38px 38px;
+
+  mask-image:
+    linear-gradient(to bottom, black, transparent 88%);
+}
+
+
+/* =========================
+   LAMP LIGHT
+   ========================= */
+
+.lamp-glow-login,
+.lamp-glow-register {
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(255, 159, 103, 0.48) 0%,
+      rgba(255, 159, 103, 0.20) 28%,
+      rgba(238, 125, 67, 0.08) 48%,
+      transparent 72%
+    );
+}
+
+
+/* =========================
+   LIVE WIRE BUTTON
+   ========================= */
+
+.livewire-button {
+  background:
+    linear-gradient(
+      135deg,
+      #ffad79,
+      #ff9f67 50%,
+      #f58248
+    );
+
+  color: #080b0f;
+
+  box-shadow:
+    0 12px 35px rgba(255, 159, 103, 0.24);
+
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    filter 180ms ease;
+}
+
+.livewire-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 17px 45px rgba(255, 159, 103, 0.34);
+
+  filter: brightness(1.04);
+}
+
+.livewire-button:active {
+  transform: translateY(0);
+}
