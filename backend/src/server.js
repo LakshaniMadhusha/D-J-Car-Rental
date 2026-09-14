@@ -16,7 +16,7 @@ app.use(
 app.use(express.json({ limit: "1mb" }));
 
 app.get("/", (req, res) => {
-  res.json({ message: "DriveX API is running." });
+  res.json({ message: "D&J Car Rentals API is running." });
 });
 
 app.use("/api/auth", authRoutes);

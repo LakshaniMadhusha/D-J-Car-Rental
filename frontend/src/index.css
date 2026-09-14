@@ -1,49 +1,45 @@
 @import "tailwindcss";
 
 @theme {
-  /* Live Wire brand scale */
-  --color-livewire-50: #fff7f1;
-  --color-livewire-100: #ffeadc;
-  --color-livewire-200: #ffd2b8;
-  --color-livewire-300: #ffb98f;
-  --color-livewire-400: #ffa873;
+  /* brand — light orange → deep orange, with warm neutrals */
+  --color-brand-50: #fff9f5;
+  --color-brand-100: #fff1e8;
+  --color-brand-200: #ffd9c2;
+  --color-brand-300: #ffbd98;
+  --color-brand-400: #ff9f67;
+  --color-brand-500: #f27c3d;
+  --color-brand-600: #d9662b;
 
-  /* Main Live Wire web approximation */
-  --color-livewire-500: #ff9f67;
+  /* ink — elegant black, tinted warm for readable secondary text */
+  --color-ink-900: #171717;
+  --color-ink-800: #2d2d2d;
+  --color-ink-700: #3d3733;
+  --color-ink-500: #7a6f68;
+  --color-ink-300: #b7a99e;
 
-  --color-livewire-600: #ee7d43;
-  --color-livewire-700: #cf5f2c;
-  --color-livewire-800: #a84826;
-  --color-livewire-900: #873d24;
-
-  /* DriveX automotive neutrals */
-  --color-drive-950: #05070a;
-  --color-drive-900: #090d12;
-  --color-drive-850: #0d131a;
-  --color-drive-800: #111923;
-  --color-drive-700: #202b36;
+  /* navy — sampled from the D&J Car Rentals logo mark */
+  --color-navy-700: #0b4a82;
+  --color-navy-300: #7fb3e0;
 }
+
+/* =========================
+   BASIC PAGE
+========================= */
 
 :root {
   font-family:
-    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
-    "Segoe UI", sans-serif;
+    Inter, ui-sans-serif, system-ui, -apple-system,
+    BlinkMacSystemFont, "Segoe UI", sans-serif;
 
-  color: #f8fafc;
-  background: #05070a;
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-}
-
-* {
-  box-sizing: border-box;
+  color: #171717;
+  background: #ff9f67;
 }
 
 html,
-body {
+body,
+#root {
   min-width: 320px;
   min-height: 100%;
-  background: #05070a;
 }
 
 body {
@@ -52,81 +48,107 @@ body {
   overflow-x: hidden;
 }
 
-button,
-input {
-  font: inherit;
-}
-
-button {
-  cursor: pointer;
-}
-
-::selection {
-  background: rgba(255, 159, 103, 0.35);
-}
-
 
 /* =========================
-   MAIN BACKGROUND
-   ========================= */
+   MAIN GRADIENT BACKGROUND
+   Warm white → soft peach → light orange,
+   used behind every page's main content.
+========================= */
 
 .auth-bg {
   background:
     radial-gradient(
-      circle at 18% 18%,
-      rgba(255, 159, 103, 0.14),
+      circle at 12% 10%,
+      rgba(255, 159, 103, 0.16),
       transparent 30%
     ),
+
     radial-gradient(
-      circle at 82% 82%,
-      rgba(238, 125, 67, 0.08),
-      transparent 28%
+      circle at 90% 14%,
+      rgba(242, 124, 61, 0.10),
+      transparent 34%
     ),
+
+    radial-gradient(
+      circle at 80% 88%,
+      rgba(255, 217, 194, 0.55),
+      transparent 38%
+    ),
+
     linear-gradient(
-      135deg,
-      #030508 0%,
-      #080d13 48%,
-      #05070a 100%
+      160deg,
+      #fff9f5 0%,
+      #fff1e8 45%,
+      #ffd9c2 100%
     );
 }
 
 
 /* =========================
-   GLASS CARD
-   ========================= */
+   DARK SHOWCASE / HERO PANEL
+   Elegant black → deep orange, used for the
+   hero-style promotional side of a layout.
+========================= */
 
-.glass-panel {
-  background: rgba(9, 13, 18, 0.82);
-
-  border: 1px solid rgba(255, 159, 103, 0.12);
+.showcase-panel {
+  background: linear-gradient(
+    135deg,
+    #171717 0%,
+    #2d2d2d 60%,
+    #f27c3d 130%
+  );
 
   box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.48),
-    inset 0 1px 0 rgba(255, 255, 255, 0.035);
-
-  backdrop-filter: blur(22px);
-  -webkit-backdrop-filter: blur(22px);
+    0 30px 70px rgba(23, 23, 23, 0.28),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
 
 /* =========================
-   INPUT
-   ========================= */
+   GLASS CARD
+   Warm-white glass used for auth forms,
+   the dashboard shell and content cards.
+========================= */
+
+.glass-panel {
+  background: linear-gradient(
+    160deg,
+    rgba(255, 249, 245, 0.86) 0%,
+    rgba(255, 241, 232, 0.78) 100%
+  );
+
+  border: 1px solid rgba(255, 255, 255, 0.7);
+
+  box-shadow:
+    0 30px 70px rgba(124, 59, 23, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.85);
+
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+}
+
+
+/* =========================
+   INPUT FIELDS
+========================= */
 
 .field {
   width: 100%;
 
   border-radius: 1rem;
 
-  border: 1px solid rgba(148, 163, 184, 0.16);
+  border: 1px solid rgba(242, 124, 61, 0.16);
 
-  background: rgba(15, 23, 32, 0.78);
+  background: rgba(255, 255, 255, 0.75);
 
   padding: 0.95rem 1rem 0.95rem 2.8rem;
 
-  color: #f8fafc;
+  color: #171717;
 
   outline: none;
+
+  box-shadow:
+    inset 0 1px 2px rgba(80, 35, 15, 0.03);
 
   transition:
     border-color 180ms ease,
@@ -135,104 +157,237 @@ button {
 }
 
 .field::placeholder {
-  color: #64748b;
+  color: #b7a99e;
 }
 
 .field:hover {
-  border-color: rgba(255, 159, 103, 0.28);
+  border-color: rgba(242, 124, 61, 0.45);
 }
 
 .field:focus {
-  border-color: #ff9f67;
+  border-color: #f27c3d;
 
-  background: rgba(17, 25, 35, 0.96);
+  background: #ffffff;
 
   box-shadow:
-    0 0 0 4px rgba(255, 159, 103, 0.10),
-    0 8px 30px rgba(255, 159, 103, 0.06);
+    0 0 0 4px rgba(255, 159, 103, 0.18),
+    0 8px 25px rgba(184, 91, 43, 0.10);
 }
 
 
 /* =========================
-   BACKGROUND GRID
-   ========================= */
-
-.noise {
-  position: absolute;
-  inset: 0;
-
-  opacity: 0.22;
-
-  pointer-events: none;
-
-  background-image:
-    linear-gradient(
-      rgba(255, 255, 255, 0.018) 1px,
-      transparent 1px
-    ),
-    linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.018) 1px,
-      transparent 1px
-    );
-
-  background-size: 38px 38px;
-
-  mask-image:
-    linear-gradient(to bottom, black, transparent 88%);
-}
-
-
-/* =========================
-   LAMP LIGHT
-   ========================= */
-
-.lamp-glow-login,
-.lamp-glow-register {
-  background:
-    radial-gradient(
-      ellipse at top,
-      rgba(255, 159, 103, 0.48) 0%,
-      rgba(255, 159, 103, 0.20) 28%,
-      rgba(238, 125, 67, 0.08) 48%,
-      transparent 72%
-    );
-}
-
-
-/* =========================
-   LIVE WIRE BUTTON
-   ========================= */
+   PRIMARY CTA BUTTON
+   Light orange → deep orange gradient.
+========================= */
 
 .livewire-button {
-  background:
-    linear-gradient(
-      135deg,
-      #ffad79,
-      #ff9f67 50%,
-      #f58248
-    );
+  background: linear-gradient(
+    135deg,
+    #ff9f67 0%,
+    #f27c3d 100%
+  );
 
-  color: #080b0f;
+  color: #ffffff;
 
   box-shadow:
-    0 12px 35px rgba(255, 159, 103, 0.24);
+    0 14px 30px rgba(242, 124, 61, 0.32);
 
   transition:
     transform 180ms ease,
     box-shadow 180ms ease,
-    filter 180ms ease;
+    background 180ms ease;
 }
 
 .livewire-button:hover {
   transform: translateY(-2px);
 
-  box-shadow:
-    0 17px 45px rgba(255, 159, 103, 0.34);
+  background: linear-gradient(
+    135deg,
+    #ff9f67 0%,
+    #d9662b 100%
+  );
 
-  filter: brightness(1.04);
+  box-shadow:
+    0 20px 40px rgba(217, 102, 43, 0.38);
 }
 
 .livewire-button:active {
   transform: translateY(0);
+}
+
+
+/* =========================
+   ICON CHIPS
+========================= */
+
+.chip-dark {
+  background: linear-gradient(
+    135deg,
+    #171717 0%,
+    #2d2d2d 60%,
+    #f27c3d 160%
+  );
+}
+
+.chip-brand {
+  background: linear-gradient(
+    135deg,
+    #ff9f67 0%,
+    #f27c3d 100%
+  );
+}
+
+
+/* =========================
+   BADGES / PILLS
+========================= */
+
+.badge-outline {
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(6px);
+}
+
+.badge-soft {
+  border: 1px solid rgba(242, 124, 61, 0.18);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 159, 103, 0.14) 0%,
+    rgba(255, 241, 232, 0.6) 100%
+  );
+}
+
+
+/* =========================
+   PROMOTIONAL BANNER
+========================= */
+
+.promo-banner {
+  position: relative;
+  overflow: hidden;
+
+  background: linear-gradient(
+    135deg,
+    #ff9f67 0%,
+    #f27c3d 100%
+  );
+
+  box-shadow: 0 18px 40px rgba(242, 124, 61, 0.30);
+}
+
+
+/* =========================
+   FEATURED CARD
+========================= */
+
+.card-featured {
+  background: linear-gradient(
+    135deg,
+    #ff9f67 0%,
+    #ffb88f 50%,
+    #fff1e8 100%
+  );
+
+  box-shadow: 0 18px 36px rgba(242, 124, 61, 0.22);
+}
+
+
+/* =========================
+   HIGHLIGHT / GRADIENT TEXT
+========================= */
+
+.text-gradient {
+  background: linear-gradient(
+    135deg,
+    #ff9f67 0%,
+    #f27c3d 100%
+  );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+
+/* =========================
+   DECORATIVE GLOW BLOBS
+========================= */
+
+.glow-orange {
+  background: radial-gradient(
+    circle,
+    rgba(255, 159, 103, 0.55) 0%,
+    transparent 70%
+  );
+}
+
+.glow-peach {
+  background: radial-gradient(
+    circle,
+    rgba(255, 217, 194, 0.65) 0%,
+    transparent 70%
+  );
+}
+
+
+/* =========================
+   DECORATIVE BACKGROUND GRID
+========================= */
+
+.noise {
+  position: absolute;
+  inset: 0;
+
+  pointer-events: none;
+
+  opacity: 0.18;
+
+  background-image:
+    linear-gradient(
+      rgba(255, 255, 255, 0.50) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.50) 1px,
+      transparent 1px
+    );
+
+  background-size: 42px 42px;
+}
+
+
+/* =========================
+   LAMP GLOW
+========================= */
+
+.lamp-glow {
+  background: radial-gradient(
+    ellipse at top,
+    rgba(255, 255, 255, 0.90) 0%,
+    rgba(255, 241, 232, 0.62) 28%,
+    rgba(255, 159, 103, 0.20) 52%,
+    transparent 74%
+  );
+}
+
+
+/* =========================
+   LAMP LIGHT BEAM
+========================= */
+
+.lamp-beam {
+  clip-path: polygon(
+    40% 0,
+    60% 0,
+    100% 100%,
+    0 100%
+  );
+
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.46),
+    rgba(255, 241, 232, 0.20),
+    transparent
+  );
 }
